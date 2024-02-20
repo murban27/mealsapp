@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mealsapp/Screen/mealitem_detail.dart';
 import 'package:mealsapp/models/meal.dart';
 import 'package:mealsapp/widgets/meal_item_trait.dart';
 import 'package:transparent_image/transparent_image.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class MailItem extends StatelessWidget {
   const MailItem({super.key, required this.meal});
@@ -28,12 +30,21 @@ class MailItem extends StatelessWidget {
       clipBehavior: Clip.hardEdge,
       elevation: 2,
       child: InkWell(
-          onTap: () => 0,
+          onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MealItemDetail(
+                    itemname: meal.title,
+                    imageurl: meal.imageUrl,
+                  ),
+                ),
+              ),
           child: Stack(
             children: [
-              FadeInImage(
-                  placeholder: MemoryImage(kTransparentImage),
-                  image: NetworkImage(meal.imageUrl),
+              CachedNetworkImage(
+                  placeholder: (context, url) =>
+                      const CircularProgressIndicator(),
+                  imageUrl: meal.imageUrl,
                   fit: BoxFit.cover,
                   height: 200,
                   width: double.infinity),
