@@ -36,6 +36,8 @@ class MailItem extends StatelessWidget {
                   builder: (context) => MealItemDetail(
                     itemname: meal.title,
                     imageurl: meal.imageUrl,
+                    ingredients: meal.ingredients,
+                    steps: meal.steps,
                   ),
                 ),
               ),
