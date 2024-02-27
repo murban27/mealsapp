@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mealsapp/Screen/categories.dart';
 import 'package:mealsapp/Screen/mealsscreen.dart';
+import 'package:mealsapp/Screen/tabs.dart';
 import 'package:mealsapp/data/data_dummy.dart';
 import 'package:mealsapp/helpdevelopment/myhttpoverriders.dart';
 
@@ -28,7 +29,6 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        theme: theme, home: const CategoriesScreen()); // Todo ...,
+    return MaterialApp(theme: theme, home: const TabScreen()); // Todo ...,
   }
 }

@@ -20,47 +20,47 @@ class MealItemDetail extends StatelessWidget {
       appBar: AppBar(
         title: Text(itemname),
       ),
-      body: Column(children: [
-        const SizedBox(
-          height: 14,
-        ),
-        Image.network(imageurl,
-            height: 300, width: double.infinity, fit: BoxFit.cover),
-        const SizedBox(height: 15),
-        Text(
-          'Text ingredient',
-          style: Theme.of(context)
-              .textTheme
-              .titleLarge!
-              .copyWith(color: Theme.of(context).colorScheme.primary),
-        ),
-        const SizedBox(
-          height: 9,
-        ),
-        for (final ingredient in ingredients)
+      body: SingleChildScrollView(
+        child: Column(children: [
+          const SizedBox(
+            height: 14,
+          ),
+          Image.network(imageurl,
+              height: 300, width: double.infinity, fit: BoxFit.cover),
+          const SizedBox(height: 15),
           Text(
-            ingredient,
+            'Text ingredient',
             style: Theme.of(context)
                 .textTheme
-                .bodyMedium!
-                .copyWith(color: Theme.of(context).colorScheme.secondary),
+                .titleLarge!
+                .copyWith(color: Theme.of(context).colorScheme.primary),
           ),
-        SizedBox(height: 14),
-        for (final step in steps)
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+          const SizedBox(
+            height: 9,
+          ),
+          for (final ingredient in ingredients)
+            Text(
+              ingredient,
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyMedium!
+                  .copyWith(color: Theme.of(context).colorScheme.secondary),
+            ),
+          const SizedBox(height: 14),
+          for (final step in steps)
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
               child: Text(
                 step,
                 style: Theme.of(context)
                     .textTheme
-                    .bodyMedium!
+                    .bodySmall!
                     .copyWith(color: Theme.of(context).colorScheme.secondary),
                 textAlign: TextAlign.center,
               ),
             ),
-          ),
-      ]),
+        ]),
+      ),
     );
   }
 }
